@@ -25,5 +25,10 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
             this.finish()
         }
+        binding.btnLogin.setOnClickListener {
+            var intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            this.finish()
+        }
     }
 }

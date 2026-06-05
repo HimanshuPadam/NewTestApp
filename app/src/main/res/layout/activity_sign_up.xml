@@ -48,6 +48,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             app:boxStrokeColor="@color/white"
+            app:startIconDrawable="@drawable/ic_person"
+            app:endIconMode="custom"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -71,7 +73,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             app:boxStrokeColor="@color/white"
-            app:endIconDrawable="@drawable/ic_email"
+            app:startIconDrawable="@drawable/ic_email"
             app:endIconMode="custom"
             >
 
@@ -96,7 +98,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             app:boxStrokeColor="@color/white"
-            app:endIconDrawable="@drawable/ic_phone"
+            android:drawablePadding="20dp"
+            app:startIconDrawable="@drawable/ic_phone"
             app:endIconMode="custom"
             >
 
@@ -105,6 +108,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:drawablePadding="20dp"
+                android:paddingStart="10dp"
                 android:hint="Enter your phone number"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
@@ -178,7 +183,7 @@
             android:text="Continue with Google"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            app:icon="@mipmap/ic_google"
+            app:icon="@drawable/ic_google"
             app:iconGravity="textStart"
             app:strokeWidth="1dp"
             app:cornerRadius="28dp"
@@ -199,4 +204,5 @@
             android:layout_marginTop="15dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>

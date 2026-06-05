@@ -96,6 +96,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             app:boxStrokeColor="@color/white"
+            app:endIconDrawable="@drawable/ic_phone"
+            app:endIconMode="custom"
             >
 
             <com.google.android.material.textfield.TextInputEditText

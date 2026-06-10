@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_blue">#54C6EB</color>
+    <color name="navy_blue">#004E98</color>
+    <color name="cream">#f3ffbd</color>
+    <color name="light_purple">#dec0f1</color>
+    <color name="purple">#b79ced</color>
+    <color name="nav_indicator">#DCE4FF</color>
 </resources>

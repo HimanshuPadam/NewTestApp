@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.myproject.newtestapp.R
-import com.myproject.newtestapp.models.StudentData
+import com.myproject.newtestapp.models.StudentDataModel
 
-class Adapter(private val mList: List<StudentData>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class StudentDataAdapter(private val mList: List<StudentDataModel>) : RecyclerView.Adapter<StudentDataAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

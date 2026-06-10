@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        android:enabled="true"
+        />
+    <item
+        android:id="@+id/myAppsFragment"
+        android:icon="@drawable/ic_my_apps"
+        android:title="My Apps"
+        android:enabled="true"
+        />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="Notifications"
+        android:enabled="true"
+        />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        android:enabled="true"
+        />
+
+</menu>

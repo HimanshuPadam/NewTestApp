@@ -1,6 +1,7 @@
 package com.myproject.newtestapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             this.finish()
         }
         binding.btnLogin.setOnClickListener {
-            var intent = Intent(this, DashboardActivity::class.java)
+            var intent = Intent(this, NavActivity::class.java)
             startActivity(intent)
             this.finish()
         }

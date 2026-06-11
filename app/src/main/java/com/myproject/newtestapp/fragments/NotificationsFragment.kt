@@ -27,19 +27,19 @@ class NotificationsFragment : Fragment() {
         val notificationList = arrayListOf(
 
             NotificationModel(
-                R.drawable.ic_notification,
+                R.drawable.ic_notification_outline,
                 "District Cricket Tournament",
                 "Registration starts tomorrow."
             ),
 
             NotificationModel(
-                R.drawable.ic_notification,
+                R.drawable.ic_notification_outline,
                 "Football Tournament Selection",
                 "Your registration is rejected."
             ),
 
             NotificationModel(
-                R.drawable.ic_notification,
+                R.drawable.ic_notification_outline,
                 "Chess Tournament Selection",
                 "Your registration is approved."
             )

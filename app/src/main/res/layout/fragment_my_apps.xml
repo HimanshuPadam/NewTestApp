@@ -25,6 +25,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/card2">
@@ -54,6 +57,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         app:layout_constraintStart_toEndOf="@id/card1"
         app:layout_constraintEnd_toEndOf="parent">
@@ -84,6 +90,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/card1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/card4">
@@ -114,6 +123,9 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:layout_constraintTop_toBottomOf="@id/card2"
         app:layout_constraintStart_toEndOf="@id/card3"
         app:layout_constraintEnd_toEndOf="parent">
@@ -153,6 +165,10 @@
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginTop="10dp"
+        android:scrollbars="horizontal"
+        android:paddingVertical="5dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarFadeDuration="2"
         app:layout_constraintTop_toBottomOf="@id/tvRecentApps"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

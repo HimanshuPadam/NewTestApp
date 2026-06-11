@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     lateinit var studentList: ArrayList<StudentDataModel>
     lateinit var searchList : ArrayList<StudentDataModel>
     lateinit var database: DatabaseReference
+    lateinit var studentListener: ValueEventListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +47,7 @@ class HomeFragment : Fragment() {
         studentDataAdapter = StudentDataAdapter(searchList)
         database = Firebase.database.reference.child("Students")
         getStudents()
-        studentDataAdapter?.notifyDataSetChanged()
+
 
         binding.rvDashboard.layoutManager = LinearLayoutManager(requireActivity())
         binding.rvDashboard.adapter = studentDataAdapter
@@ -149,9 +150,9 @@ class HomeFragment : Fragment() {
         }
     }
     private fun getStudents() {
-        Toast.makeText(requireContext(), "Loading Students...", Toast.LENGTH_SHORT).show()
-        database.addValueEventListener(object : ValueEventListener {
+        studentListener= object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                if(!isAdded) return
                 studentList.clear()
                 searchList.clear()
                 for (studentSnapshot in snapshot.children) {
@@ -163,17 +164,28 @@ class HomeFragment : Fragment() {
                     }
                 }
                 studentDataAdapter?.notifyDataSetChanged()
-                Toast.makeText(requireContext(), "${studentList.size} Students Loaded", Toast.LENGTH_SHORT)
-                    .show()
+                if(isAdded) {
+                    Toast.makeText(
+                        requireContext(),
+                        "${studentList.size} Students Loaded",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    requireContext(),
-                    error.message,
-                    Toast.LENGTH_LONG
-                ).show()
+                context?.let {
+                    Toast.makeText(
+                        requireContext(),
+                        error.message,
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
-        })
+
+
+        }
+        database.addValueEventListener(studentListener)
     }
 }

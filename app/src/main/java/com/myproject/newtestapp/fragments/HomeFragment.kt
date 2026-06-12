@@ -20,6 +20,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import android.widget.Toast
+import com.airbnb.lottie.LottieAnimationView
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.models.SlideModel
 
 
 class HomeFragment : Fragment() {
@@ -29,6 +33,7 @@ class HomeFragment : Fragment() {
     lateinit var searchList : ArrayList<StudentDataModel>
     lateinit var database: DatabaseReference
     lateinit var studentListener: ValueEventListener
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +46,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         studentList = ArrayList()
         searchList = ArrayList()
+
+        binding.animationView.pauseAnimation()
+        binding.animationView.playAnimation()
+
+        binding.animationView.setAnimation(R.raw.another_animation)
+
 
         studentDataAdapter = StudentDataAdapter(searchList)
         database = Firebase.database.reference.child("Students")
@@ -95,6 +107,22 @@ class HomeFragment : Fragment() {
             }
 
         })
+
+        binding.swipeRefresh.setOnRefreshListener {
+            getStudents()
+            binding.swipeRefresh.isRefreshing = false
+        }
+
+        val imageList = ArrayList<SlideModel>() // Create image list
+
+// imageList.add(SlideModel("String Url" or R.drawable)
+// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+
+        imageList.add(SlideModel(R.drawable.ic_school1, "This is the school infrastructure."))
+        imageList.add(SlideModel(R.drawable.ic_school2, "All children are friendly in nature"))
+        imageList.add(SlideModel(R.drawable.ic_school3, "and play with fun with each other."))
+        binding.imageSlider.setImageList(imageList, scaleType = ScaleTypes.FIT)
+
         binding.fabAdd.setOnClickListener {
             val builder = AlertDialog.Builder(requireActivity())
             builder.setTitle("Add New Student")
@@ -149,7 +177,18 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (::database.isInitialized && ::studentListener.isInitialized) {
+            database.removeEventListener(studentListener)
+        }
+    }
+    
     private fun getStudents() {
+        if (::studentListener.isInitialized) {
+            database.removeEventListener(studentListener)
+        }
         studentListener= object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(!isAdded) return
@@ -171,6 +210,9 @@ class HomeFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     )
                         .show()
+                    binding.animationView.pauseAnimation()
+                    binding.animationView.visibility = View.GONE
+                    binding.rvDashboard.visibility = View.VISIBLE
                 }
             }
 

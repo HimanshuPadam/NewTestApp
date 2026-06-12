@@ -55,4 +55,12 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+
+
+    implementation ("com.airbnb.android:lottie:6.7.1")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+
+
 }
